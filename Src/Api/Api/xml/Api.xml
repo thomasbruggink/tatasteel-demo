@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Api</name>
+    </assembly>
+    <members>
+        <member name="T:Api.AppStart.ContainerFactory">
+            <summary>
+                Creates a new container containing all the injectable services and repositories
+            </summary>
+        </member>
+        <member name="M:Api.AppStart.ContainerFactory.#ctor(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <inheritdoc />
+        </member>
+        <member name="M:Api.AppStart.ContainerFactory.CreateContainer">
+            <summary>
+                Creates a new container
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Api.AppStart.ContainerFactory.Build">
+            <summary>
+                Builds the container
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Api.AppStart.Startup">
+            <summary>
+                Startup configuration for the server
+            </summary>
+        </member>
+        <member name="M:Api.AppStart.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+                Provides the configuration for the application
+            </summary>
+            <param name="app"></param>
+        </member>
+        <member name="M:Api.AppStart.Startup.ConfigureDependencyInjection(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+                Configures the dependency injection features
+            </summary>
+        </member>
+        <member name="T:Api.Configuration.Configuration">
+            <inheritdoc />
+        </member>
+        <member name="M:Api.Configuration.Configuration.GetAvailibilityServiceEndPoint">
+            <inheritdoc />
+        </member>
+        <member name="T:Api.Configuration.IConfiguration">
+            <summary>
+                Contains configuration items
+            </summary>
+        </member>
+        <member name="M:Api.Configuration.IConfiguration.GetAvailibilityServiceEndPoint">
+            <summary>
+                Returns the endpoint to connect to
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Api.Controllers.ProductController">
+            <summary>
+                Allows access to the product API
+            </summary>
+        </member>
+        <member name="M:Api.Controllers.ProductController.#ctor(Api.Repositories.IProductRepository)">
+            <summary>
+                Default constructor
+            </summary>
+            <param name="productRepository"></param>
+        </member>
+        <member name="M:Api.Controllers.ProductController.Get(System.Int32,System.Int32)">
+            <summary>
+            Returns a list of products
+            </summary>
+            <param name="pageSize">The amount of items per page (max 1000)</param>
+            <param name="pageIndex">The page to fetch</param>
+            <returns></returns>
+        </member>
+        <member name="T:Api.Model.Product">
+            <summary>
+                Contains product information
+            </summary>
+        </member>
+        <member name="P:Api.Model.Product.Id">
+            <summary>
+                The product Id
+            </summary>
+        </member>
+        <member name="P:Api.Model.Product.Name">
+            <summary>
+                The name of the product
+            </summary>
+        </member>
+        <member name="P:Api.Model.Product.ImageId">
+            <summary>
+                The imageId to retrieve image data
+            </summary>
+        </member>
+        <member name="P:Api.Model.Product.Availability">
+            <summary>
+                How many of this product are in stock
+                Null if this information could not be retrieved
+            </summary>
+        </member>
+        <member name="T:Api.Repositories.AvalibilityRepository">
+            <inheritdoc />
+        </member>
+        <member name="M:Api.Repositories.AvalibilityRepository.#ctor(Api.Configuration.IConfiguration)">
+            <summary>
+            Initialize this instance and setup and connect the socket
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:Api.Repositories.AvalibilityRepository.GetProductCount(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Api.Repositories.AvalibilityRepository.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="T:Api.Repositories.IAvailabilityRepository">
+            <summary>
+                Communication with the availibility service
+            </summary>
+        </member>
+        <member name="M:Api.Repositories.IAvailabilityRepository.GetProductCount(System.String)">
+            <summary>
+                Returns the amount of items available
+            </summary>
+            <param name="productId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Api.Repositories.IProductReader">
+            <summary>
+                A repository to access products
+            </summary>
+        </member>
+        <member name="M:Api.Repositories.IProductReader.GetProducts">
+            <summary>
+                Returns all available products
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Api.Repositories.IProductRepository">
+            <summary>
+                Retrieves products
+            </summary>
+        </member>
+        <member name="T:Api.Repositories.ProductFileReader">
+            <inheritdoc />
+        </member>
+        <member name="M:Api.Repositories.ProductFileReader.GetProducts">
+            <inheritdoc />
+        </member>
+        <member name="T:Api.Repositories.ProductRepository">
+            <inheritdoc />
+        </member>
+        <member name="M:Api.Repositories.ProductRepository.#ctor(Api.Repositories.IProductReader,Api.Repositories.IAvailabilityRepository)">
+            <summary>
+                Default constructor
+            </summary>
+            <param name="productReader"></param>
+            <param name="availabilityRepository"></param>
+        </member>
+        <member name="M:Api.Repositories.ProductRepository.GetProducts(System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
