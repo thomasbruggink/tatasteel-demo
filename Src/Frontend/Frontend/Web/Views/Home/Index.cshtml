@@ -1,0 +1,29 @@
+﻿@model List<Web.Models.ProductModel>
+
+@if (Model.Count == 0)
+{
+    <div class="container-fluid bg-1 text-center">
+        <h3>No products found :(</h3>
+    </div>
+}
+else
+{
+    var backgroundCounter = 1;
+    foreach (var product in Model)
+    {
+        <div class="container-fluid bg-@backgroundCounter text-center blog">
+            <h1>@product.Name</h1>
+            <div class="row">
+                <div class="col-md-12">@product.ImageBlob</div>
+            </div>
+            <div class="row">
+                <h3>Amount left: <span>@product.Count</span></h3>
+                </div>
+            </div>
+        backgroundCounter++;
+        if (backgroundCounter >= 3)
+        {
+            backgroundCounter = 0;
+        }
+    }
+}

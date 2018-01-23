@@ -1,0 +1,56 @@
+﻿.bg-1 {
+    background-color: #1abc9c; /* Green */
+    color: #ffffff;
+}
+.bg-2 {
+    background-color: #474e5d; /* Dark Blue */
+    color: #ffffff;
+}
+.bg-3 {
+    background-color: #ffffff; /* White */
+    color: #555555;
+}
+
+.bg-error {
+    background-color: #cc0000;
+    color: #ffffff;
+}
+
+.container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+}
+
+.navbar-nav li a:hover {
+    color: #1abc9c !important;
+}
+
+.profile-box {
+    height: 500px;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    text-align: center;
+}
+
+.input-field {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.form-label {
+    font-size: 22px;
+}
+
+.written-by {
+    padding-top: 20px;
+}
