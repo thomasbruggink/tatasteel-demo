@@ -44,7 +44,7 @@ namespace Api.Controllers
 
             // Check if all values have a result otherwise return partial
             var result = _productRepository.GetProducts(pageSize, pageIndex - 1);
-            return result.Any(p => p.Availability == null) ? StatusCode(206, result) : Ok(_productRepository.GetProducts(pageSize, pageIndex - 1));
+            return result.Any(p => p.Availability == null) ? StatusCode(206, result) : Ok(result);
         }
     }
 }
