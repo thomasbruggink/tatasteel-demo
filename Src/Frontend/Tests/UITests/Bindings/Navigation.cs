@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TechTalk.SpecFlow;
+﻿using TechTalk.SpecFlow;
 using UITests.Pages;
-using UITests.Pages.Blog;
-using UITests.Pages.User;
+using UITests.Pages.Product;
 
 namespace UITests.Bindings
 {
@@ -19,14 +13,9 @@ namespace UITests.Bindings
         {
             switch (page.ToLower())
             {
-                case "profile":
+                case "home":
                     {
-                        NavigationHelper.Navigate<UserPage>();
-                        break;
-                    }
-                case "blog":
-                    {
-                        NavigationHelper.Navigate<BlogPage>();
+                        NavigationHelper.Navigate<ProductPage>();
                         break;
                     }
             }

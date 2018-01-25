@@ -17,7 +17,7 @@ namespace Business.Migrations
             //GENERIC            
             Create.Table("images")
                 .WithColumn("Id").AsString(255).NotNullable().PrimaryKey()
-                .WithColumn("ImageBlob").AsCustom("TEXT");
+                .WithColumn("ImageBlob").AsCustom("LONGTEXT");
         }
 
         /// <summary>

@@ -11,9 +11,9 @@ namespace UITests.TestSupport.Api
             _testSupportApiHelper = new TestSupportApiHelper();
         }
 
-        public ApiResponse CreateBlog(string imageId, string imageData)
+        public ApiResponse UploadImage(string imageId, string imageData)
         {
-            var url = "/api/images/upload";
+            var url = "/api/image/upload";
 
             var response = _testSupportApiHelper.Post(url, new ImageForm
             {

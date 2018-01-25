@@ -33,7 +33,7 @@ namespace Api.Controllers
         [HttpGet]
         [Route("api/products")]
         [SwaggerResponse((int) HttpStatusCode.OK, Description = "A list of products", Type = typeof(List<Product>))]
-        [SwaggerResponse((int) HttpStatusCode.OK, Description = "The request was invalid", Type = typeof(string))]
+        [SwaggerResponse((int) HttpStatusCode.BadRequest, Description = "The request was invalid", Type = typeof(string))]
         [SwaggerResponse((int) HttpStatusCode.InternalServerError, Description = "An internal server error occured")]
         public IActionResult Get(int pageSize = 10, int pageIndex = 1)
         {

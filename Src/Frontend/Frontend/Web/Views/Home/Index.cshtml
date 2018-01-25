@@ -3,7 +3,7 @@
 @if (Model.Count == 0)
 {
     <div class="container-fluid bg-1 text-center">
-        <h3>No products found :(</h3>
+        <h3 class="product-base-message">No products found :(</h3>
     </div>
 }
 else
@@ -11,13 +11,22 @@ else
     var backgroundCounter = 1;
     foreach (var product in Model)
     {
-        <div class="container-fluid bg-@backgroundCounter text-center blog">
+        <div class="container-fluid bg-@backgroundCounter text-center product">
             <h1>@product.Name</h1>
             <div class="row">
-                <div class="col-md-12">@product.ImageBlob</div>
+                <div class="col-md-12 product-image" id="@product.ImageId">
+                    @if (product.ImageBlob != null)
+                    {
+                        <image style="width: 400px" src="data:image/@product.ImageType;base64, @product.ImageBlob"></image>
+                    }
+                    else
+                    {
+                        <span>No image available</span>
+                    }
+                </div>
             </div>
             <div class="row">
-                <h3>Amount left: <span>@product.Count</span></h3>
+                <h3>Amount left: <span class="product-count">@product.Count</span></h3>
                 </div>
             </div>
         backgroundCounter++;

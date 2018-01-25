@@ -3,29 +3,36 @@
 
 Background: 
 	Given the following product information is available
-		| ProductId | Name         | ImageId     | Count |
-		| 1XS5      | Wooden plank | plank.png   | 100   |
-		| 556X      | Steel plank  | splank.png  | 2     |
-		| A2        | X12 Screws   | screws.png  | 10    |
-		| T42       | Heavy tiles  | h_tiles.png | 76    |
-		| T21       | Light tiles  | l_tiles.png | 901   |
+		| ProductId | Name       | ImageId        | Count |
+		| 1XS5      | Beach ball | beach-ball.png | 100   |
+		| 556X      | Bear       | bear.png       | 2     |
+		| A2        | Bike       | bike.png       | 10    |
+		| T42       | Plank      | plank.png      | 76    |
+		| T21       | Stunt Step | stuntstep.png  | 901   |
 
 @products
 Scenario: Display all products
-	When I visit the homepage
+	When I look at the 'home' page
 	Then I see the following products
-		| ProductId | Name         | ImageId     | Count |
-		| 1XS5      | Wooden plank | plank.png   | 100   |
-		| 556X      | Steel plank  | splank.png  | 2     |
-		| A2        | X12 Screws   | screws.png  | 10    |
-		| T42       | Heavy tiles  | h_tiles.png | 76    |
-		| T21       | Light tiles  | l_tiles.png | 901   |
+		| ProductId | Name       | ImageId        | Count |
+		| 1XS5      | Beach ball | beach-ball.png | 100   |
+		| 556X      | Bear       | bear.png       | 2     |
+		| A2        | Bike       | bike.png       | 10    |
+		| T42       | Plank      | plank.png      | 76    |
+		| T21       | Stunt Step | stuntstep.png  | 901   |
 
 @products
 Scenario: Display products with missing images
 	Given the following product information is available
-		| ProductId | Name       | ImageId                | Count |
-		| BB1       | Beach ball | non_existing_image.png | 2     |
-	When I visit the homepage
-		| ProductId | Name       | ImageText          | Count |
-		| BB1       | Beach ball | No image available | 2     |
+		| ProductId | Name  | ImageId                | Count |
+		| SCRW      | Screw | non_existing_image.png | 2     |
+	When I look at the 'home' page
+	Then I see the following products
+		| ProductId | Name  | ImageText          | Count |
+		| SCRW      | Screw | No image available | 2     |
+
+@products
+Scenario: Display no products when backend is unavailable
+	Given the backend is unavailable
+	When I look at the 'home' page
+	Then I see the message 'No products found :('

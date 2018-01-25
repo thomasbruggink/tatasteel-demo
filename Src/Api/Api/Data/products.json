@@ -1,17 +1,27 @@
 ﻿[
   {
-    "id": "1",
-    "name": "Product 1",
-    "imageId": "image.png" 
+    "id": "1XS5",
+    "name": "Beach ball",
+    "imageId": "beach-ball.png" 
   },
   {
-    "id": "ABC45",
-    "name":  "Product 2",
-    "imageId": "image2.png"
+    "id": "556X",
+    "name":  "Bear",
+    "imageId": "bear.png"
   },
   {
-    "id": "X65",
-    "name":  "Product 3",
-    "imageId": "image3.png"
+    "id": "A2",
+    "name":  "Bike",
+    "imageId": "bike.png"
+  },
+  {
+    "id": "T42",
+    "name":  "Plank",
+    "imageId": "plank.png"
+  },
+  {
+    "id": "T21",
+    "name":  "Stunt Step",
+    "imageId": "stuntstep.png"
   }
 ]

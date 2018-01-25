@@ -1,6 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using Business.Models;
 using Business.Repositories;
 using Web.Models;
 
@@ -20,15 +23,25 @@ namespace Web.Controllers
         [HttpGet]
         public async Task<ViewResult> Index()
         {
-            var result = await _productRepository.GetProducts();
+            List<Product> products;
+            try
+            {
+                products = await _productRepository.GetProducts();
+            }
+            catch (Exception)
+            {
+                products = new List<Product>();
+            }
             var productSet = new List<ProductModel>();
-            foreach (var product in result)
+            foreach (var product in products)
             {
                 var productModel = new ProductModel
                 {
                     Id = product.Id,
                     Name = product.Name,
                     Count = product.Availability,
+                    ImageId = product.ImageId,
+                    ImageType = product.ImageId.Split('.').Last(),
                     ImageBlob = await _imageRepository.GetImageById(product.ImageId)
                 };
                 productSet.Add(productModel);
